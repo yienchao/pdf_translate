@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# PDFs (exclude originals and outputs)
+*.pdf
+
+# Temporary files
+*.json.bak
+*_indexed.json
+A-001_new_dictionary_entries.json
+
+# Archive
+archive/
+old/
+original/
+methode 9/
+
+# OS
+.DS_Store
+Thumbs.db
