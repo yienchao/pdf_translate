@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(time python:*)",
+      "Bash(time bash:*)",
+      "Bash(nul)",
+      "Bash(python method9_translate.py:*)",
+      "Bash(python convert_to_text_keyed.py:*)",
+      "Bash(copy:*)",
+      "Bash(python:*)",
+      "Bash(dir:*)",
+      "Bash(tasklist:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)",
+      "Bash(faulty_report.txt)",
+      "Bash(move analyze_french_remaining.py archive/)",
+      "Bash(move:*)",
+      "Bash(move detailed_french_analysis.py archive/)",
+      "Bash(move clean_dictionary.py archive/)",
+      "Bash(mv:*)",
+      "Bash(cp:*)",
+      "Bash(python3:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
