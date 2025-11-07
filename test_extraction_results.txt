@@ -1,0 +1,50 @@
+================================================================================
+TESTING DIFFERENT EXTRACTION METHODS
+================================================================================
+
+1. METHOD: get_text('text') - Simple text extraction
+--------------------------------------------------------------------------------
+
+2. METHOD: get_text('dict') - Current method (structured)
+--------------------------------------------------------------------------------
+  Span: NIVEAU DE PLANCHER
+  Span: NOTES GÉNÉRALES 
+  Span: LES NOTES GÉNÉRALES ET LES ANNOTATIONS AUX DESSINS SONT COMPLÉMENTAIRES. S'IL 
+  Span: NOTES GÉNÉRALES / PLANS
+  Span: NOTES GÉNÉRALES / TOITURES
+  Span: NOTES GÉNÉRALES / ÉLÉVATIONS
+  Span: COLOMBAGES À 400 mm DU PLANCHER JUSQU'À 2440 mm DE HAUT
+  Span: ENTRE LES COLOMBAGES À 305 mm DU PLANCHER
+  Span: À INSTALLER ENTRE LES COLOMBAGES (CENTRE À 1500 mm DU PLANCHER)
+  Span: RAPPORT AUX AXES SONT DONNÉES SUR LES COINS, EN GÉNÉRAL.
+
+3. METHOD: get_text('html') - HTML with encoding
+--------------------------------------------------------------------------------
+  HTML snippet: :#000000">NIVEAU DE PLANCHER</span></p>
+<p style="top:1279.9pt;left:1137.9pt;line-height:9.0pt"><spa
+
+4. METHOD: get_text('rawdict') - Raw character codes
+--------------------------------------------------------------------------------
+
+5. COMPARISON: First 5 text blocks with all methods
+--------------------------------------------------------------------------------
+
+  Block 0:
+    Simple: 01
+    Dict:   01
+
+  Block 1:
+    Simple: JT.400.00.02A
+    Dict:   JT.400.00.02A
+
+  Block 2:
+    Simple: PARTIE EXISTANTE
+    Dict:   PARTIE EXISTANTE
+
+  Block 3:
+    Simple: CLOISON ET TYPE DE CLOISON (VOIR FEUILLE A-701)
+    Dict:   CLOISON ET TYPE DE CLOISON (VOIR FEUILLE A-701)
+
+  Block 4:
+    Simple: LA FLÈCHE INDIQUE LE DÉBUT DE LA DESCRIPTION
+    Dict:   LA FLÈCHE INDIQUE LE DÉBUT DE LA DESCRIPTION

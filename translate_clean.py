@@ -30,19 +30,43 @@ if os.path.exists(DICT_PATH):
 print(f"Dictionary loaded: {len(TRANSLATION_DICT)} entries")
 
 def should_skip(text):
-    """Skip empty, numbers only, units"""
+    """Skip empty, numbers only, units, acronyms, technical codes"""
     if not text or not text.strip():
         return True
+
+    # Skip if no letters (pure numbers, symbols, etc.)
     if not any(c.isalpha() for c in text):
         return True
 
-    units = {'MM', 'CM', 'M', 'KG', 'LB', 'FT', 'IN', 'SQ', 'MIN', 'MAX', 'NO', 'QTY', 'TYP', 'REF'}
-    if text.upper() in units:
+    # Skip common units and measurement abbreviations
+    units = {'MM', 'CM', 'M', 'KG', 'LB', 'FT', 'IN', 'SQ', 'MIN', 'MAX', 'NO', 'QTY', 'TYP', 'REF',
+             'GA', 'CAL', 'PSI', 'KPA', 'MPH', 'KPH', 'DEG', 'TEMP', 'DIA', 'THK', 'EA'}
+    if text.upper().strip('.,;:()[]{}!?-') in units:
         return True
 
-    # Don't skip corrupted chars - normalize_accents() will handle them
-    # if len(text) <= 4 and '�' in text:
-    #     return True
+    # Skip material codes ONLY if they match specific patterns
+    # Examples: "ac", "aci", "pbo", "bbé", "pmé" (architectural material abbreviations)
+    # But DON'T skip French words like "au", "de", "ou", "et"
+    if len(text) <= 4 and not text.isupper():
+        # Skip only if it has numbers (like "1a", "2b")
+        if any(c.isdigit() for c in text):
+            return True
+        # Skip ONLY known material code patterns (very specific)
+        # Material codes are typically consonant-heavy abbreviations
+        material_codes = {'ac', 'aci', 'al', 'ar', 'asp', 'bo', 'br', 'bv', 'bz',
+                         'ca', 'cc', 'cf', 'cg', 'ci', 'cp', 'cr', 'cs', 'ct', 'cu', 'cv',
+                         'ea', 'ec', 'ei', 'pbo', 'pfs', 'pi', 'pla', 'prt', 'ps', 'pt', 'pvb',
+                         'rm', 'rv', 'st', 'ta', 'tc', 'te', 'ti', 'tm', 'tn', 'tep', 'tr',
+                         'vac', 'vc', 'vcr'}
+        if text.lower() in material_codes:
+            return True
+
+    # Skip reference codes like "PL1", "MF2", "A-505", "G485"
+    import re
+    if re.match(r'^[A-Z]{1,3}\d+[a-z]?$', text, re.IGNORECASE):  # PL1, MF2, A505
+        return True
+    if re.match(r'^[A-Z]-\d+[a-z]?$', text, re.IGNORECASE):  # A-505, G-123
+        return True
 
     return False
 
@@ -200,14 +224,16 @@ def process_pdf(input_path, output_path):
     indexed_file = f"{DATA_FOLDER}/{pdf_code}_indexed.json"
     to_translate_file = f"{DATA_FOLDER}/{pdf_code}_to_translate.json"
 
+    # NOTE: Indexed files should be manually deleted when PDFs change
+    # For this run, use existing indexed file if present
+
     # Extract text
     print("Extracting text...")
     text_elements = extract_text_from_pdf(input_path)
     print(f"Found {len(text_elements)} text elements")
 
     # Process each element
-    needs_translation = {}  # indexed: {0: french_text, 1: french_text}
-    new_dict_entries = {}   # for dictionary: {french: english}
+    needs_translation = {}  # indexed: {index: french_text}
 
     for idx, elem in enumerate(text_elements):
         text = elem["text"]
@@ -225,8 +251,8 @@ def process_pdf(input_path, output_path):
         if translated:
             elem["translated"] = translated
             elem["type"] = "dict"
-        elif has_french(text):
-            # French but not in dictionary
+        else:
+            # NOT in dictionary - assume it's French and needs translation
             if word_count <= 10:
                 # Short/medium phrase - needs to go in dictionary
                 elem["type"] = "needs_dict"
@@ -235,10 +261,6 @@ def process_pdf(input_path, output_path):
                 # Long sentence (11+ words) - needs indexed translation
                 elem["type"] = "needs_indexed"
                 needs_translation[str(idx)] = text
-        else:
-            # No French detected
-            elem["translated"] = text
-            elem["type"] = "english"
 
     print(f"Elements needing translation: {len(needs_translation)}")
 
@@ -261,25 +283,39 @@ def process_pdf(input_path, output_path):
         with open(indexed_file, 'r', encoding='utf-8') as f:
             translations = json.load(f)
 
-        # Apply translations
+        # Build complete text -> translation lookup from indexed file
+        # The indexed file contains translations at OLD index positions
+        # We need to match by text content since indices may have changed
+        indexed_to_translate = {}
+        if os.path.exists(to_translate_file):
+            with open(to_translate_file, 'r', encoding='utf-8') as f:
+                indexed_to_translate = json.load(f)
+
+        # Build reverse lookup: text -> translation from indexed file
+        text_to_translation = {}
+        for idx_str, french_text in indexed_to_translate.items():
+            if idx_str in translations:
+                text_to_translation[french_text] = translations[idx_str]
+
+        # Apply translations to ALL elements (not just newly detected ones)
         for idx, elem in enumerate(text_elements):
-            if elem.get("type") in ["needs_dict", "needs_indexed"]:
-                original = elem["text"]
-                translated = translations.get(str(idx), original)
-                elem["translated"] = translated
+            original = elem["text"]
 
-                # Add to dictionary if 10 words or less
-                word_count = len(original.split())
-                if word_count <= 10:
-                    new_dict_entries[original] = translated
+            # Skip if already translated from dictionary
+            if elem.get("type") == "dict":
+                continue
 
-        # Update dictionary with new entries (10 words and less only)
-        if new_dict_entries:
-            print(f"Adding {len(new_dict_entries)} new entries to dictionary")
-            TRANSLATION_DICT.update(new_dict_entries)
-            with open(DICT_PATH, 'w', encoding='utf-8') as f:
-                json.dump(TRANSLATION_DICT, f, ensure_ascii=False, indent=2)
-            print(f"Dictionary now has {len(TRANSLATION_DICT)} entries")
+            # Try to find translation by text content
+            if original in text_to_translation:
+                elem["translated"] = text_to_translation[original]
+                elem["type"] = "indexed"  # Mark as translated from indexed file
+            elif elem.get("type") in ["needs_dict", "needs_indexed"]:
+                # New item not in indexed file - keep as needs translation
+                pass
+
+        # DO NOT auto-add indexed translations to dictionary
+        # Dictionary should only contain manually verified translations
+        # Indexed files are regenerated fresh each run
 
     # Apply to PDF
     print("Applying translations to PDF...")
@@ -289,10 +325,11 @@ def process_pdf(input_path, output_path):
         page = doc[page_num]
         page_elements = [e for e in text_elements if e["page"] == page_num]
 
-        # Cover original text with white rectangles
+        # Cover original text with white rectangles (EXPANDED to fully cover)
         for elem in page_elements:
             bbox = elem["bbox"]
-            rect = fitz.Rect(bbox[0] + 0.5, bbox[1] + 0.5, bbox[2] - 0.5, bbox[3] - 0.5)
+            # Expand rectangle by 1 point on all sides to ensure full coverage
+            rect = fitz.Rect(bbox[0] - 1, bbox[1] - 1, bbox[2] + 1, bbox[3] + 1)
             page.draw_rect(rect, color=(1, 1, 1), fill=(1, 1, 1))
 
         # Insert translated text

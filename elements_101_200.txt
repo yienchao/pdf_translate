@@ -1,0 +1,104 @@
+Dictionary loaded: 2418 entries
+================================================================================
+ELEMENTS 101-200 - ORIGINAL TEXT + CLASSIFICATION
+================================================================================
+101 | DICT    |  1 words | N
+102 | DICT    |  4 words | L'INTÉGRITÉ DE CES SÉPARATIONS.
+103 | DICT    |  1 words | RME…
+104 | DICT    |  5 words | REVÊTEMENT MÉTALLIQUE (DE TYPE …)
+105 | SKIP    |  1 words | 0
+106 | DICT    |  5 words | RÉFÉRENCE DE DÉTAIL OU PLAN
+107 | SKIP    |  1 words | 7.
+108 | DICT    |  9 words | LES COULEURS DES FINIS SERONT AU CHOIX DE L'ARCHITECTE.
+109 | SKIP    |  1 words | A-000
+110 | DICT    |  2 words | BORNE FONTAINE
+111 | DICT    |  1 words | S…
+112 | DICT    |  4 words | SOFFITE (DE TYPE …)
+113 | DICT    |  1 words | SM…
+114 | DICT    |  5 words | SOLIN MÉTALLIQUE (DE TYPE …)
+115 | SKIP    |  1 words | 8.
+116 | INDEXED | 12 words | TOUTES LES CLOISONS SERONT CONSTRUITES DE DALLE À DALLE, SAUF OÙ INDIQUÉ
+117 | DICT    |  1 words | AUTREMENT.
+118 | DICT    |  4 words | LAMPADAIRE (VOIR DOCUMENTS D'INGÉNIERIE)
+119 | DICT    |  1 words | TT…
+120 | DICT    |  4 words | TOITURE (DE TYPE …)
+121 | SKIP    |  1 words | 0
+122 | DICT    |  1 words | TY...
+123 | DICT    |  4 words | PANNEAU TYMPAN (DE TYPE...)
+124 | DICT    |  3 words | RÉFÉRENCE DE COUPE
+125 | SKIP    |  1 words | 9.
+126 | INDEXED | 11 words | PRÉVOIR FOND DE VISSAGE POUR TOUS LES ACCESSOIRES ET ÉQUIPEMENTS IDENTIFIÉS
+127 | SKIP    |  1 words | A-000
+128 | DICT    |  5 words | AUX PLANS OU AU DEVIS.
+129 | DICT    |  1 words | V...
+130 | DICT    |  3 words | VERRE (DE TYPE...)
+131 | DICT    |  3 words | LIGNE DE PROPRIÉTÉ
+132 | DICT    |  1 words | VT...
+133 | DICT    |  6 words | PANNEAU TYMPAN EN VERRE (DE TYPE...)
+134 | SKIP    |  1 words | 10.
+135 | INDEXED | 13 words | ESPACER D'AU MOINS 150 mm LES BOÎTIERS ET/OU COFFRETS ENCASTRÉS DE PART ET
+136 | DICT    |  4 words | PORTE ET CADRE NOUVEAUX
+137 | DICT    | 10 words | D'AUTRE DANS LES CLOISONS AVEC DEGRÉ DE RÉSISTANCE AU FEU.
+138 | DICT    |  1 words | PUISARD
+139 | DICT    |  3 words | DA0006-A JETÉE TEMPORAIRE
+140 | SKIP    |  1 words | 11.
+141 | INDEXED | 12 words | À L'INTÉRIEUR DU BÂTIMENT, LES PORTES ET CADRES SITUÉS DANS UNE SÉPARATION
+142 | DICT    |  9 words | COUPE-FEU DOIVENT AVOIR LE DEGRÉ PARE-FLAMME CORRESPONDANT AUX EXIGENCES
+143 | DICT    |  6 words | ARBRE EXISTANT CONSERVÉ / À ENLEVER
+144 | DICT    |  2 words | TERMES MATÉRIAUX
+145 | DICT    |  3 words | ABRÉVIATION DIVERSES DESSINS
+146 | DICT    |  4 words | PORTE ET CADRE EXISTANTS
+147 | INDEXED | 11 words | DU CODE EN VIGUEUR (TABLEAU 3.1.8.4). TOUTES LES OUVERTURES (SANS EXCEPTION)
+148 | DICT    |  3 words | équipe de projet
+149 | DICT    |  2 words | (VOIR PAYSAGE)
+150 | INDEXED | 11 words | CONTENUES DANS UNE TELLE SÉPARATION DOIVENT ÊTRE OBTURÉES AU MOYEN D'UN
+151 | INDEXED | 12 words | NOTE : L'IDENTIFICATION (DE TYPE...) INDIQUE QU'UN OU PLUSIEURS NUMÉROS SONT ATT
+152 | INDEXED | 11 words | ENSEMBLE COUPE-FEU HOMOLOGUÉ AYANT LE DEGRÉ DE RÉSISTANCE AU FEU REQUIS.
+153 | DICT    |  6 words | À CET ÉLÉMENT POUR LE DIFFÉRENCIER.
+154 | DICT    | 10 words | PAR EXEMPLE, LES CONTOURS DE CONDUITS, TUYAUX, FILS ÉLECTRIQUES, ETC.
+155 | DICT    |  4 words | ARBRE NOUVEAU (VOIR PAYSAGE)
+156 | SKIP    |  1 words | ac
+157 | DICT    |  1 words | acier
+158 | DICT    |  1 words | pia
+159 | DICT    |  2 words | pierre artificielle
+160 | DICT    |  6 words | PORTE ET CADRE EXISTANTS À DÉMOLIR
+161 | SKIP    |  1 words | aci
+162 | DICT    |  2 words | acier inoxydable
+163 | DICT    |  1 words | pbé
+164 | DICT    |  3 words | panneau de béton
+165 | DICT    |  1 words | ABA
+166 | DICT    |  1 words | ABAQUE
+167 | SKIP    |  1 words | 12.
+168 | INDEXED | 11 words | LES NOTES GÉNÉRALES ET LES ANNOTATIONS AUX DESSINS SONT COMPLÉMENTAIRES. S'IL
+169 | SKIP    |  1 words | al
+170 | DICT    |  1 words | aluminium
+171 | SKIP    |  1 words | pbo
+172 | DICT    |  5 words | parquet en lames de bois
+173 | DICT    |  1 words | AEE
+174 | DICT    |  8 words | APPAREIL D'ÉCLAIRAGE ENCASTRÉ (NON EXHAUSTIF, VOIR DOCUMENTS D'INGÉNIERIE)
+175 | INDEXED | 13 words | Y A AMBIGUÏTÉ ENTRE CELLES-CI, LA NOTE LA PLUS CONTRAIGNANTE AURA PRÉSÉANCE. AU
+176 | SKIP    |  1 words | ar
+177 | DICT    |  1 words | ardoise
+178 | SKIP    |  1 words | pfs
+179 | DICT    |  3 words | plancher flottant stratifié
+180 | DICT    |  1 words | AES
+181 | DICT    |  8 words | APPAREIL D'ÉCLAIRAGE SURFACE (NON EXHAUSTIF, VOIR DOCUMENTS D'INGÉNIERIE)
+182 | DICT    |  3 words | BESOIN, CONSULTER L'ARCHITECTE.
+183 | DICT    |  2 words | NOUVELLE CLOISON
+184 | DICT    |  3 words | ARBUSTES (VOIR PAYSAGE)
+185 | SKIP    |  1 words | asp
+186 | DICT    |  1 words | asphalte
+187 | SKIP    |  1 words | pi
+188 | DICT    |  1 words | pierre
+189 | DICT    |  1 words | ANC
+190 | DICT    |  1 words | ANCRAGE
+191 | DICT    |  3 words | NOUVELLE CLOISON BLINDÉE
+192 | SKIP    |  1 words | pla
+193 | DICT    |  1 words | plâtre
+194 | DICT    |  1 words | ARB
+195 | DICT    |  3 words | ARBRE, ARBUSTE, HAIE
+196 | DICT    |  1 words | bbé
+197 | DICT    |  3 words | bloc de béton
+198 | DICT    |  1 words | pmé
+199 | DICT    |  2 words | platelage métallique
+200 | DICT    |  1 words | ARM

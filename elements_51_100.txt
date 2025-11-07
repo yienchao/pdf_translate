@@ -1,0 +1,54 @@
+Dictionary loaded: 2418 entries
+================================================================================
+ELEMENTS 51-100 - ORIGINAL TEXT + CLASSIFICATION
+================================================================================
+ 51 | DICT    |  4 words | INTERRUPTEUR (VOIR DOCUMENTS D'INGÉNIERIE)
+ 52 | INDEXED | 13 words | À TITRE INDICATIF SEULEMENT ET POUR FACILITER LA LECTURE DES DOCUMENTS PAR LES
+ 53 | DICT    |  1 words | MF…
+ 54 | DICT    |  6 words | MUR DE FONDATION (DE TYPE …)
+ 55 | DICT    |  1 words | GAZON
+ 56 | INDEXED | 12 words | DIFFÉRENTS INTERVENANTS. ELLE NE LIMITE PAS LA PORTÉE DES TRAVAUX. AINSI, UNE
+ 57 | DICT    |  1 words | MR...
+ 58 | DICT    |  3 words | MUR-RIDEAU (DE TYPE...)
+ 59 | DICT    |  4 words | INTERCOM (VOIR DOCUMENTS D'INGÉNIERIE)
+ 60 | INDEXED | 13 words | INTERVENTION OU UNE NOTE SITUÉE DANS CETTE ZONE OMBRAGÉE OU GRISÉE FAIT PARTIE
+ 61 | DICT    |  1 words | XXX
+ 62 | DICT    |  3 words | AXE STRUCTURAL EXISTANT
+ 63 | DICT    |  8 words | INTÉGRANTE DES TRAVAUX À FAIRE AU PRÉSENT PROJET.
+ 64 | DICT    |  1 words | PAR…
+ 65 | DICT    |  4 words | PARAPET (DE TYPE …)
+ 66 | DICT    |  6 words | APPEL DE GARDE (VOIR DOCUMENTS D'INGÉNIERIE
+ 67 | DICT    |  2 words | ORIENTATION NORD
+ 68 | DICT    |  1 words | PAL…
+ 69 | DICT    |  5 words | PANNEAU ALUMINIUM (DE TYPE …)
+ 70 | SKIP    |  1 words | 5.
+ 71 | DICT    |  9 words | SIC, TOUS LES CONDUITS ÉLECTRIQUE ET MÉCANIQUE SONT ENCASTRÉS.
+ 72 | DICT    |  1 words | PE…
+ 73 | DICT    |  4 words | PERSIENNES (DE TYPE …)
+ 74 | DICT    |  5 words | PRISE ÉLECTRIQUE (VOIR DOCUMENTS D'INGÉNIERIE)
+ 75 | DICT    |  1 words | PF…
+ 76 | DICT    |  4 words | PORTE-FENÊTRE (DE TYPE …)
+ 77 | SKIP    |  1 words | 229
+ 78 | SKIP    |  1 words | 227
+ 79 | SKIP    |  1 words | 223
+ 80 | SKIP    |  1 words | 221
+ 81 | DICT    |  2 words | SENS CIRCULATION
+ 82 | SKIP    |  1 words | 6.
+ 83 | DICT    | 10 words | TOUS LES CONDUITS TRAVERSANT LES CLOISONS, PLAFONDS ET/OU LES DALLES
+ 84 | SKIP    |  1 words | 0
+ 85 | DICT    |  1 words | PL…
+ 86 | DICT    |  4 words | PLANCHER (DE TYPE …)
+ 87 | DICT    |  7 words | PRISE DATA / TÉLÉPHONE (VOIR DOCUMENTS D'INGÉNIERIE)
+ 88 | INDEXED | 12 words | COMPORTANT UN DEGRÉ DE RÉSISTANCE AU FEU, DOIVENT ÊTRE OBTURÉS PAR UN
+ 89 | DICT    |  2 words | RÉFÉRENCE D'ÉLÉVATION
+ 90 | DICT    |  1 words | PMI…
+ 91 | DICT    |  6 words | PANNEAU MÉTALLIQUE ISOLÉ (DE TYPE …)
+ 92 | SKIP    |  1 words | A-000
+ 93 | DICT    | 10 words | ENSEMBLE PARE-FEU / PARE-FUMÉE (SCELLANT ET ISOLANT IGNIFUGES CONTINUS) EN
+ 94 | DICT    |  1 words | SERRURE
+ 95 | INDEXED | 12 words | FONCTION DU DEGRÉ DE RÉSISTANCE AU FEU REQUIS. LE TOUT AFIN D'ASSURER
+ 96 | DICT    |  1 words | S.
+ 97 | DICT    |  2 words | ENTRÉE BÂTIMENT
+ 98 | SKIP    |  1 words | TYP.
+ 99 | DICT    |  1 words | RB...
+100 | DICT    |  6 words | REVÊTEMENT DE BRIQUES EXTÉRIEUR (DE TYPE...)

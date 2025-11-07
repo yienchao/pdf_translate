@@ -1,0 +1,55 @@
+Dictionary loaded: 2418 entries
+================================================================================
+FIRST 50 ELEMENTS - ORIGINAL TEXT + CLASSIFICATION
+================================================================================
+  0 | DICT    |  2 words | NOTES GÉNÉRALES
+  1 | DICT    |  3 words | LÉGENDES ET SYMBOLES
+  2 | DICT    |  1 words | PLANS
+  3 | DICT    |  4 words | IMPLANTATION ET AMÉNAGEMENT PAYSAGER
+  4 | DICT    |  4 words | ÉLÉVATIONS INTÉRIEURES ET MOBILIERS
+  5 | DICT    |  4 words | ASSEMBLAGES OU MATÉRIAUX ENVELOPPE
+  6 | SKIP    |  1 words | 1.
+  7 | INDEXED | 12 words | AUCUNE DIMENSION NE DOIT ÊTRE PRISE OU MESURÉE DIRECTEMENT SUR LES DESSINS.
+  8 | INDEXED | 12 words | NOTE : L'IDENTIFICATION (DE TYPE...) INDIQUE QU'UN OU PLUSIEURS NUMÉROS SONT ATT
+  9 | SKIP    |  1 words | 2.
+ 10 | INDEXED | 11 words | TOUTES LES DIMENSIONS PAR RAPPORT À L'EXISTANT SONT APPROXIMATIVES, ELLES SONT
+ 11 | DICT    |  6 words | À CET ÉLÉMENT POUR LE DIFFÉRENCIER.
+ 12 | INDEXED | 11 words | À TITRE INDICATIF SEULEMENT ET DOIVENT ÊTRE VÉRIFIÉES SUR PLACE PAR
+ 13 | INDEXED | 11 words | L'ENTREPRENEUR (ET CE, QU'ELLES PRÉSENTENT LA MENTION "±" OU NON). DES
+ 14 | DICT    |  2 words | CONSTRUCTION EXISTANTE
+ 15 | DICT    |  2 words | PARTIE EXISTANTE
+ 16 | DICT    |  4 words | DOSSERET FINI PLASTIQUE STRATIFIÉ
+ 17 | INDEXED | 11 words | AJUSTEMENTS PEUVENT ÊTRE REQUIS EN FONCTION DES CONDITIONS EXISTANTES OU DE
+ 18 | DICT    |  1 words | BAP...
+ 19 | DICT    |  8 words | BASE ANCRAGE PONCTUELLE LIGNE DE VIE (DE TYPE...)
+ 20 | DICT    |  1 words | CHANTIER.
+ 21 | DICT    |  1 words | BBO...
+ 22 | DICT    |  5 words | BASE POUR BOSSOIR (DE TYPE...)
+ 23 | DICT    |  3 words | carte de localisation
+ 24 | DICT    |  1 words | A
+ 25 | DICT    |  5 words | AIR MÉDICAL (VOIR DOCUMENTS D'INGÉNIERIE)
+ 26 | DICT    |  2 words | NOUVELLE CONSTRUCTION
+ 27 | DICT    |  1 words | BLV...
+ 28 | DICT    |  8 words | BASE POUR ANCRAGE LIGNE DE VIE (DE TYPE...)
+ 29 | DICT    |  2 words | OU AGRANDISSEMENT
+ 30 | SKIP    |  1 words | 3.
+ 31 | DICT    | 10 words | AVANT DE PROCÉDER À L'EXÉCUTION DES TRAVAUX, L'ENTREPRENEUR DOIT VÉRIFIER
+ 32 | DICT    |  5 words | SOL REMBLAYÉ  (VOIR DOCUMENTS D'INGÉNIERIE)
+ 33 | DICT    |  1 words | BS…
+ 34 | DICT    |  4 words | BRISE-SOLEIL (DE TYPE …)
+ 35 | SKIP    |  1 words | 0
+ 36 | DICT    |  4 words | OXYGÈNE (VOIR DOCUMENTS D'INGÉNIERIE)
+ 37 | INDEXED | 13 words | TOUTES LES DIMENSIONS ET CONDITIONS SUR LES LIEUX. IL DOIT AVISER SANS DÉLAI
+ 38 | DICT    |  5 words | COUVRE-SOL / LIT DE PLANTATION
+ 39 | DICT    |  9 words | L'ARCHITECTE ET LES PROFESSIONNELS DE TOUTE CONTRADICTION OU DIVERGENCE.
+ 40 | DICT    |  1 words | F…
+ 41 | DICT    |  4 words | FENÊTRE (DE TYPE …)
+ 42 | DICT    |  1 words | V
+ 43 | DICT    |  5 words | VIDE MÉDICAL (VOIR DOCUMENTS D'INGÉNIERIE)
+ 44 | DICT    |  2 words | (VOIR PAYSAGE)
+ 45 | DICT    |  3 words | AXE STRUCTURAL NOUVEAU
+ 46 | DICT    |  1 words | XXX
+ 47 | SKIP    |  1 words | 4.
+ 48 | INDEXED | 14 words | LA ZONE OMBRAGÉE, OU ZONE EN GRIS SUR LES DESSINS EN ARCHITECTURE EST INDIQUÉE
+ 49 | DICT    |  1 words | M…
+ 50 | DICT    |  4 words | MUR (DE TYPE …)

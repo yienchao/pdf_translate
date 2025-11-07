@@ -19,7 +19,10 @@
       "Bash(move clean_dictionary.py archive/)",
       "Bash(mv:*)",
       "Bash(cp:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(elements_51_100.txt)",
+      "Bash(elements_101_200.txt)",
+      "Bash(test_extraction_results.txt)"
     ],
     "deny": [],
     "ask": []

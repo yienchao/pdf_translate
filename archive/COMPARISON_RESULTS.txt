@@ -1,0 +1,165 @@
+================================================================================
+PDF TRANSLATION METHODS - COMPARISON RESULTS
+================================================================================
+
+Original File: AR-001 - LÉGENDES ET NOTES GÉNÉRALES.pdf
+Size: 2.02 MB
+
+================================================================================
+RESULTS SUMMARY
+================================================================================
+
+Method                    Status         File Size    Notes
+--------------------------------------------------------------------------------
+Original PDF              -              2.02 MB      French version
+Method 1 (Redact)         [OK]           3.39 MB      Increased size
+Method 2 (Decompose)      [OK]           1.65 MB      Smallest file
+Method 3 (ReportLab)      [OK]           4.53 MB      Largest file
+
+================================================================================
+METHOD DETAILS
+================================================================================
+
+METHOD 1: REDACT AND REPLACE
+----------------------------
+Approach:
+  - Uses PyMuPDF's redaction feature
+  - Marks French text areas for removal
+  - Applies redactions (removes text)
+  - Inserts English text in same positions
+
+Pros:
+  + Clean approach using built-in PyMuPDF redaction
+  + Properly removes original text objects
+  + Maintains PDF structure
+
+Cons:
+  - Some font warnings (couldn't load custom fonts)
+  - Larger file size (3.39 MB)
+  - May not preserve exact font appearance
+
+Output: AR-001 - METHOD1 - REDACT.pdf
+
+
+METHOD 2: DECOMPOSE AND REBUILD
+--------------------------------
+Approach:
+  - Creates new PDF document from scratch
+  - Extracts all elements (images, drawings, text)
+  - Translates text
+  - Rebuilds page with all elements
+
+Pros:
+  + Complete control over reconstruction
+  + Smallest file size (1.65 MB)
+  + Successfully copied 14 images and 2472 drawing elements
+  + Inserted 847 text elements
+
+Cons:
+  - Most complex approach
+  - May miss some subtle page elements
+  - Longer processing time
+
+Output: AR-001 - METHOD2 - DECOMPOSE.pdf
+
+
+METHOD 3: REPORTLAB WITH IMAGE BACKGROUND
+------------------------------------------
+Approach:
+  - Renders original page as high-quality image
+  - Uses image as background
+  - Covers French text with white rectangles
+  - Overlays English text on top
+
+Pros:
+  + Guaranteed visual accuracy (uses original as image)
+  + Simple and reliable
+  + No missing elements
+
+Cons:
+  - Largest file size (4.53 MB) due to embedded image
+  - Text underneath is not truly removed (just covered)
+  - Background is rasterized (not vector)
+
+Output: AR-001 - METHOD3 - REPORTLAB.pdf
+
+================================================================================
+RECOMMENDATIONS
+================================================================================
+
+BEST FOR QUALITY:
+  Method 2 (Decompose and Rebuild)
+  - Smallest file size
+  - True vector graphics preserved
+  - Professional quality output
+
+BEST FOR SIMPLICITY:
+  Method 3 (ReportLab)
+  - Guaranteed to look like original
+  - Easiest to understand
+  - Good for complex layouts
+
+BEST FOR PROPER TEXT REMOVAL:
+  Method 1 (Redact)
+  - Uses proper PDF redaction
+  - Text is actually removed, not covered
+  - Good middle ground
+
+================================================================================
+COMMON ISSUES FOUND
+================================================================================
+
+1. Font Handling:
+   - Method 1 had warnings about custom fonts
+   - All methods fell back to Helvetica for English text
+   - This is acceptable as English text is typically shorter
+
+2. Special Characters:
+   - Some accented characters (é, à, ô) may not translate perfectly
+   - This is due to the dictionary-based approach
+
+3. File Sizes:
+   - Method 3 is largest due to embedded high-res image
+   - Method 2 is smallest (only vector elements)
+   - Method 1 is medium (keeps original structure + new text)
+
+================================================================================
+RECOMMENDED USAGE
+================================================================================
+
+For your ARCH E dimension architectural drawings:
+
+PRIMARY RECOMMENDATION: Method 2 (Decompose and Rebuild)
+  - Best quality-to-size ratio
+  - Professional output
+  - Smallest file size for sharing/storage
+
+BACKUP OPTION: Method 1 (Redact)
+  - Use if Method 2 misses any elements
+  - Proper text removal
+  - Acceptable file size
+
+FALLBACK: Method 3 (ReportLab)
+  - Use if you need guaranteed visual accuracy
+  - Good for presentations where file size doesn't matter
+  - Simplest code to maintain
+
+================================================================================
+NEXT STEPS
+================================================================================
+
+1. Open and review all three output PDFs
+2. Compare text placement and readability
+3. Check that all graphics/symbols are preserved
+4. Verify technical drawings are still accurate
+5. Choose the method that best fits your needs
+
+All scripts are ready to use:
+  - method1_redact_replace.py
+  - method2_decompose_rebuild.py
+  - method3_reportlab.py
+  - translation_dictionary.py (shared dictionary)
+
+To translate other PDFs, simply modify the input/output paths in each script.
+
+================================================================================

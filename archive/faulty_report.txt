@@ -1,0 +1,67 @@
+Loading dictionary...
+Total entries: 4338
+
+================================================================================
+SUMMARY
+================================================================================
+identity       : 1148 entries
+proper_noun    :    7 entries
+partial        :  257 entries
+corrupted      :    4 entries
+ok             : 2922 entries
+
+================================================================================
+IDENTITY MAPPINGS (needs translation)
+================================================================================
+  1. DIMENSION
+  2. DIMENSIONS
+  3. IDENTIFICATION
+  4. DESCRIPTION
+  5. TYPE
+  6. AIR
+  7. DOCUMENTS
+  8. DOCUMENT
+  9. ( )
+ 10. (PAV. B) – CONSTRUCTION –
+ 11. (R.L.)
+ 12. (Z)
+ 13. - CONSTRUCTION -
+ 14. - MEMBRANE
+ 15. 0.24 (M
+ 16. 0.26 (M
+ 17. 0133
+ 18. 0134
+ 19. 0135
+ 20. 0136
+
+... and 1128 more
+
+================================================================================
+PARTIAL TRANSLATIONS (Franglais - needs fix)
+================================================================================
+  1.   AUTOMATIQUES. (SE RÉFÉRER AUX ÉLÉVATIONS POUR TY...
+     ->   AUTOMATIC. (REFER TO ELEVATIONS FOR TYPE)
+
+  2.   AUX ÉLÉVATIONS POUR LE TYPE DE VERRE)
+     ->   TO ELEVATIONS FOR GLASS TYPE)
+
+  3.   AUX ÉLÉVATIONS POUR TYPE)
+     ->   TO ELEVATIONS FOR TYPE)
+
+  4.   EN PLAN DES PLAFONDS RÉFLÉCHIS SÉRIE A-250
+     ->   IN PLAN OF REFLECTED CEILINGS SERIES A-250
+
+  5.   IN PLAN OF THE CEILINGS RÉFLÉCHIS SÉRIE A-250
+     ->   IN PLAN OF THE REFLECTED CEILINGS SERIES A-250
+
+  6. - 2 PANNEAUX DE GYPSE TYPE X INSTALLÉS EN QUINCONC...
+     -> - 2 TYPE X GYPSUM PANELS INSTALLED STAGGERED (2 X ...
+
+Traceback (most recent call last):
+  File "C:\Users\yichao\Documents\pdfTranslate\find_faulty_translations.py", line 190, in <module>
+    analyze_dictionary()
+  File "C:\Users\yichao\Documents\pdfTranslate\find_faulty_translations.py", line 138, in analyze_dictionary
+    print(f"{i:3d}. {french}")
+  File "C:\Users\yichao\AppData\Local\Programs\Python\Python310\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode character '\ufffd' in position 41: character maps to <undefined>
