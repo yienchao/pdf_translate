@@ -1,2 +1,7 @@
 nul
 method9_data/nul
+
+# API Keys and secrets
+.env
+.env.example
+start_with_api.bat
