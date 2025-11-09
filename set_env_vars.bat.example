@@ -1,0 +1,8 @@
+@echo off
+REM Template for environment variables
+REM Copy this file to 'set_env_vars.bat' and fill in your actual credentials
+REM (set_env_vars.bat is gitignored and won't be committed)
+
+set ANTHROPIC_API_KEY=your-anthropic-api-key-here
+set SUPABASE_URL=your-supabase-project-url-here
+set SUPABASE_KEY=your-supabase-anon-key-here

@@ -1,4 +1,4 @@
-"""Streamlit PDF Translation App - Local Testing"""
+"""Streamlit PDF Translation App - With Supabase Auth"""
 import streamlit as st
 import os
 import sys
@@ -8,6 +8,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 from translate_haiku_100 import process_pdf
+from auth import require_auth, display_user_info, get_user_id
+from supabase_client import get_supabase_client
 
 # Configure page
 st.set_page_config(
@@ -16,11 +18,24 @@ st.set_page_config(
     layout="wide"
 )
 
-# Create necessary directories
-UPLOAD_DIR = Path("uploads")
-OUTPUT_DIR = Path("translated_pdfs")
-UPLOAD_DIR.mkdir(exist_ok=True)
-OUTPUT_DIR.mkdir(exist_ok=True)
+# Require authentication (or allow local mode if Supabase not configured)
+require_auth()
+
+# Create necessary directories based on user
+user_id = get_user_id()
+if user_id:
+    # Authenticated user - use user-specific folder
+    USER_DIR = Path("user_files") / user_id
+    UPLOAD_DIR = USER_DIR / "uploads"
+    OUTPUT_DIR = USER_DIR / "translated"
+    UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+else:
+    # Local testing mode - use shared folder
+    UPLOAD_DIR = Path("uploads")
+    OUTPUT_DIR = Path("translated_pdfs")
+    UPLOAD_DIR.mkdir(exist_ok=True)
+    OUTPUT_DIR.mkdir(exist_ok=True)
 
 # Title
 st.title("Fra to Eng PDF AI Translator")
@@ -57,8 +72,11 @@ with st.sidebar:
     3. **Download** translated PDFs
     """)
 
+    # Display user info and logout button if authenticated
+    display_user_info()
+
 # Main area
-tab1, tab2 = st.tabs(["📤 Upload & Translate", "📁 Files"])
+tab1, tab2, tab3 = st.tabs(["📤 Upload & Translate", "📁 Files", "📊 History"])
 
 with tab1:
     st.header("Upload PDFs")
@@ -150,6 +168,24 @@ with tab1:
                             total_input_tokens += input_tokens
                             total_output_tokens += output_tokens
 
+                            # Log to database if Supabase is configured
+                            user_id = get_user_id()
+                            if user_id and st.session_state.get("supabase"):
+                                try:
+                                    file_size = uploaded_file.size if hasattr(uploaded_file, 'size') else None
+                                    st.session_state.supabase.log_translation(
+                                        user_id=user_id,
+                                        original_filename=uploaded_file.name,
+                                        translated_filename=final_output_name,
+                                        input_tokens=input_tokens,
+                                        output_tokens=output_tokens,
+                                        file_size_bytes=file_size,
+                                        status="completed"
+                                    )
+                                except Exception as e:
+                                    # Don't fail the translation if logging fails
+                                    print(f"Failed to log translation to database: {e}")
+
                             # Show tokens for this file
                             file_tokens = input_tokens + output_tokens
                             st.success(f"✅ {uploaded_file.name}: {file_tokens:,} tokens ({input_tokens:,} in + {output_tokens:,} out)")
@@ -228,6 +264,59 @@ with tab2:
         else:
             st.info("No translated files yet")
 
+with tab3:
+    st.header("📊 Translation History")
+
+    # Only show history if Supabase is configured and user is authenticated
+    user_id = get_user_id()
+    if user_id and st.session_state.get("supabase"):
+        # Get user stats
+        try:
+            stats = st.session_state.supabase.get_user_stats(user_id)
+
+            # Display statistics
+            st.subheader("Your Statistics")
+            col1, col2, col3 = st.columns(3)
+
+            with col1:
+                st.metric("Total Translations", stats.get("total_translations", 0))
+            with col2:
+                st.metric("Total Tokens", f"{stats.get('total_tokens_used', 0):,}")
+            with col3:
+                st.metric("Total Cost", f"${stats.get('total_cost_usd', 0):.2f}")
+
+            st.divider()
+
+            # Get translation history
+            translations = st.session_state.supabase.get_user_translations(user_id, limit=50)
+
+            if translations:
+                st.subheader("Recent Translations")
+
+                for trans in translations:
+                    with st.expander(f"📄 {trans['original_filename']} → {trans['translated_filename']}"):
+                        col1, col2 = st.columns(2)
+
+                        with col1:
+                            st.markdown(f"**Date:** {trans['created_at'][:10]}")
+                            st.markdown(f"**Status:** {trans['status']}")
+                            if trans.get('file_size_bytes'):
+                                size_mb = trans['file_size_bytes'] / 1024 / 1024
+                                st.markdown(f"**File Size:** {size_mb:.2f} MB")
+
+                        with col2:
+                            st.markdown(f"**Tokens:** {trans.get('total_tokens', 0):,}")
+                            st.markdown(f"**Input:** {trans.get('input_tokens', 0):,}")
+                            st.markdown(f"**Output:** {trans.get('output_tokens', 0):,}")
+                            st.markdown(f"**Cost:** ${trans.get('cost_total_usd', 0):.4f}")
+            else:
+                st.info("No translation history yet")
+
+        except Exception as e:
+            st.error(f"Failed to load history: {e}")
+    else:
+        st.info("History is only available when logged in with Supabase")
+
 # Footer
 st.divider()
-st.markdown("*Local testing version - Run with: `streamlit run app.py`*")
+st.markdown("*Production version with Supabase auth (local mode enabled if Supabase not configured)*")
